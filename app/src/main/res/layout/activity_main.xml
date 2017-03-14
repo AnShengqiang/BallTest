@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_margin="6dp"
+            android:id="@+id/rgb_text_view"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="@color/black"/>
+
+        <LinearLayout
+            android:layout_margin="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="33">
+                <TextView
+                    android:id="@+id/rgb_r_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="10"
+                    android:text="0"/>
+                <SeekBar
+                    android:id="@+id/rgb_r_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:max="255"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="33">
+                <TextView
+                    android:id="@+id/rgb_g_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="10"
+                    android:text="0"/>
+                <SeekBar
+                    android:id="@+id/rgb_g_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:max="255"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="33">
+                <TextView
+                    android:id="@+id/rgb_b_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:gravity="center_vertical"
+                    android:text="0"/>
+                <SeekBar
+                    android:id="@+id/rgb_b_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:max="255"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="33">
+                <TextView
+                    android:id="@+id/speed_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="10"
+                    android:text="1"/>
+                <SeekBar
+                    android:id="@+id/speed_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:max="20"
+                    android:progress="1"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.github.anshengqiang.colorfulballtest.SceneView
+            android:id="@+id/ballView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/midnightblue"
+            android:layout_margin="6dp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
