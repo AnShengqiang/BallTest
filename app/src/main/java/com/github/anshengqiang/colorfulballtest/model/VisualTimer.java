@@ -1,4 +1,4 @@
-package com.github.anshengqiang.colorfulballtest;
+package com.github.anshengqiang.colorfulballtest.model;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

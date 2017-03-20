@@ -1,5 +1,6 @@
-package com.github.anshengqiang.colorfulballtest;
+package com.github.anshengqiang.colorfulballtest.Test;
 
+import android.app.FragmentManager;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +8,11 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements 
+import com.github.anshengqiang.colorfulballtest.R;
+import com.github.anshengqiang.colorfulballtest.model.Ball;
+import com.github.anshengqiang.colorfulballtest.model.Player;
+
+public class TestActivity extends AppCompatActivity implements
         SeekBar.OnSeekBarChangeListener, TextView.OnClickListener, Ball.BallDestroyListener{
 
     private TextView mRgbTextView;
@@ -22,20 +27,24 @@ public class MainActivity extends AppCompatActivity implements
     private SeekBar mBSeekBar;
     private SeekBar mSpeedSeekBar;
 
-    private SceneView mSceneView;
+    private TestSceneView mTestSceneView;
+    private Player mPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
 
-        mSceneView = (SceneView) findViewById(R.id.ballView);
-        mSceneView.mBall.setOnDestroyBallListener(this);
+        mPlayer = new Player();
+
+        mTestSceneView = (TestSceneView) findViewById(R.id.ballView);
+        mTestSceneView.mBall.setOnDestroyBallListener(this);
 
         initView();
     }
 
     private void initView(){
+
         mRgbTextView = (TextView) findViewById(R.id.rgb_text_view);
         mRgbTextView.setOnClickListener(this);
         
@@ -57,9 +66,9 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
-        mSceneView.setBallPosition(200, 200);
+        mTestSceneView.setBallPosition(200, 200);
         mSpeedSeekBar.setProgress(0);
-        mSceneView.mBall.setSpeed(0);
+        mTestSceneView.mBall.setSpeed(0);
 
     }
 
@@ -77,10 +86,10 @@ public class MainActivity extends AppCompatActivity implements
 
         int color = Color.argb(255, red, green, blue);
         mRgbTextView.setBackgroundColor(color);
-        mSceneView.mVisualTimer.setColor(color);
-        mSceneView.mBat.setColor(color);
+        mTestSceneView.mVisualTimer.setColor(color);
+        mTestSceneView.mBat.setColor(color);
 
-        mSceneView.setBallSpeed(times);
+        mTestSceneView.setBallSpeed(times);
     }
 
 
@@ -97,8 +106,10 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onDestroyBall() {
-        mSceneView.setBallPosition(200, 200);
+        mTestSceneView.setBallPosition(200, 200);
         mSpeedSeekBar.setProgress(0);
-        mSceneView.mBall.setSpeed(0);
+        mTestSceneView.mBall.setSpeed(0);
+        FragmentManager fm = getFragmentManager();
+        mPlayer.loseLife(this, fm);
     }
 }

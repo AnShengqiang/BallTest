@@ -1,4 +1,4 @@
-package com.github.anshengqiang.colorfulballtest;
+package com.github.anshengqiang.colorfulballtest.model;
 
 /**
  * Created by anshengqiang on 2017/3/11.

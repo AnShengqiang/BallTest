@@ -1,4 +1,4 @@
-package com.github.anshengqiang.colorfulballtest;
+package com.github.anshengqiang.colorfulballtest.Test;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,11 +13,15 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.github.anshengqiang.colorfulballtest.model.Ball;
+import com.github.anshengqiang.colorfulballtest.model.Bat;
+import com.github.anshengqiang.colorfulballtest.model.VisualTimer;
+
 /**
  * Created by anshengqiang on 2017/3/11.
  */
 
-public class SceneView extends View {
+public class TestSceneView extends View {
 
     public Ball mBall;
     public Bat mBat;
@@ -26,18 +30,18 @@ public class SceneView extends View {
 
 
 
-    public SceneView(Context context) {
+    public TestSceneView(Context context) {
         super(context);
         this.init();
     }
 
-    public SceneView(Context context, @Nullable AttributeSet attrs) {
+    public TestSceneView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         this.init();
     }
 
-    public SceneView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TestSceneView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         this.init();
@@ -101,7 +105,7 @@ public class SceneView extends View {
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
-
+        canvas.drawColor(Color.WHITE);
         this.mBall.draw(canvas);
 
         Rect rect = getClockRect();
